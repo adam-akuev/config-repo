@@ -5,7 +5,7 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     username: postgres
-    url: jdbc:postgresql://postgres:5432/movie_db
+    url: jdbc:postgresql://localhost:5432/movie_db
     password: password
   jpa:
     hibernate:
