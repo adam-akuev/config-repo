@@ -1,6 +1,9 @@
 example:
   property: I AM THE DEFAULT
 
+server:
+  port: 8081
+
 spring:
   jpa:
     show-sql: true
