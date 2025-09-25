@@ -28,7 +28,28 @@ spring:
           discovery:
             locator:
               enabled: true
-              lowerCaseServiceId: true
+              lower-case-service-id: true
+      routes:
+        - id: movieservice
+          uri: lb://movieservice
+          predicates:
+            - Path=/movie/**
+          filters:
+            - RewritePath=/movie/(?<path>.*), /$\{path}
+
+        - id: bookingservice
+          uri: lb://bookingservice
+          predicates:
+            - Path=/booking/**
+          filters:
+            - RewritePath=/booking/(?<path>.*), /$\{path}
+
+        - id: userservice
+          uri: lb://userservice
+          predicates:
+            - Path=/user/**
+          filters:
+            - RewritePath=/user/(?<path>.*), /$\{path}
 
 eureka:
   instance:
