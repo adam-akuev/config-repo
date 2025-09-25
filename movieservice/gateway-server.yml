@@ -12,11 +12,13 @@ management:
       base-path: /actuator
   endpoint:
     gateway:
-      enabled: true
+      access: read-only
     health:
       show-details: always
+      access: read-only
     routes:
       enabled: true
+      access: read-only
 
 spring:
   cloud:
