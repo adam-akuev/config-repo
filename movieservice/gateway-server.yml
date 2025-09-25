@@ -4,6 +4,20 @@ example:
 server:
   port: 8084
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway,metrics,routes
+      base-path: /actuator
+  endpoint:
+    gateway:
+      enabled: true
+    health:
+      show-details: always
+    routes:
+      enabled: true
+
 spring:
   cloud:
     gateway:
