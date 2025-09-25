@@ -7,9 +7,12 @@ server:
 spring:
   cloud:
     gateway:
-      discovery.locator:
-        enabled: true
-        lowerCaseServiceId: true
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
+              lowerCaseServiceId: true
 
 eureka:
   instance:
