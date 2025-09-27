@@ -4,6 +4,12 @@ example:
 server:
   port: 8082
 
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    com.akuev: DEBUG
+
 spring:
   jpa:
     show-sql: true

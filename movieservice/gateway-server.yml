@@ -4,6 +4,12 @@ example:
 server:
   port: 8084
 
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    com.akuev: DEBUG
+
 management:
   endpoints:
     web:
