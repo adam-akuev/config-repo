@@ -22,4 +22,4 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: http://keycloak:8080/realms/cinema
-          jwk-ser-uri: http://keycloak:8080/realms/cinema/protocol/openid-connect/certs
+          jwk-set-uri: http://keycloak:8080/realms/cinema/protocol/openid-connect/certs
