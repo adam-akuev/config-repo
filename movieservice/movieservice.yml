@@ -17,3 +17,9 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://keycloak:8080/realms/cinema
+          jwk-ser-uri: http://keycloak:8080/realms/cinema/protocol/openid-connect/certs
