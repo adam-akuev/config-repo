@@ -22,5 +22,5 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://keycloak:8080/realms/cinema
-          jwk-set-uri: http://keycloak:8080/realms/cinema/protocol/openid-connect/certs
+          issuer-uri: http://localhost:8080/realms/cinema #For docker localhost=keycloak
+          jwk-set-uri: http://localhost:8080/realms/cinema/protocol/openid-connect/certs #For docker localhost=keycloak
