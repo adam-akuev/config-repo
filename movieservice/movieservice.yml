@@ -9,6 +9,7 @@ logging:
     com.netflix: WARN
     org.springframework.web: WARN
     com.akuev: DEBUG
+    org.springframework.security: DEBUG
 
 spring:
   jpa:
