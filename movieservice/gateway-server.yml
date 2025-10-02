@@ -42,6 +42,7 @@ spring:
               - Path=/movie/**
             filters:
               - RewritePath=/movie/(?<path>.*), /$\{path}
+              - RemoveRequestHeader=Cookie,Set-Cookie
 
           - id: bookingservice
             uri: lb://bookingservice
@@ -49,6 +50,7 @@ spring:
               - Path=/booking/**
             filters:
               - RewritePath=/booking/(?<path>.*), /$\{path}
+              - RemoveRequestHeader=Cookie,Set-Cookie              
 
           - id: userservice
             uri: lb://userservice
@@ -56,6 +58,7 @@ spring:
               - Path=/user/**
             filters:
               - RewritePath=/user/(?<path>.*), /$\{path}
+              - RemoveRequestHeader=Cookie,Set-Cookie
 
 eureka:
   instance:

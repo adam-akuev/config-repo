@@ -24,3 +24,14 @@ spring:
         jwt:
           issuer-uri: http://localhost:8080/realms/cinema #For docker localhost=keycloak
           jwk-set-uri: http://localhost:8080/realms/cinema/protocol/openid-connect/certs #For docker localhost=keycloak
+  cloud:
+    stream:
+      bindings:
+        movieSessionOutput-out-0:
+          destination: orgChangeTopic
+          content-type: application/json
+      kafka:
+        binder:
+          brokers: localhost:9092
+          auto-create-topics: true
+          
