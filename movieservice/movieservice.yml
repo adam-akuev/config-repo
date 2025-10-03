@@ -34,4 +34,5 @@ spring:
         binder:
           brokers: localhost:9092
           auto-create-topics: true
+          auto-add-partitions: true
           
