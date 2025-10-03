@@ -36,4 +36,4 @@ spring:
           consumer-properties:
             key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
             value.deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-            spring.json.trusted.puckages: "*"
+            spring.json.trusted.packages: "*"
