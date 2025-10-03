@@ -23,3 +23,17 @@ spring:
         jwt:
           issuer-uri: http://localhost:8080/realms/cinema #For docker localhost=keycloak
           jwk-set-uri: http://localhost:8080/realms/cinema/protocol/openid-connect/certs #For docker localhost=keycloak
+  cloud:
+    stream:
+      bindings:
+        input-in-0:
+          destination: orgChangeTopic
+          content-type: application/json
+          group: bookingGroup
+      kafka:
+        binder:
+          brokers: localhost:9092
+          consumer-properties:
+            key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+            value.deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+            spring.json.trusted.puckages: "*"
