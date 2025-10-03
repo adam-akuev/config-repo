@@ -8,6 +8,7 @@ logging:
   level:
     com.netflix: WARN
     org.springframework.web: WARN
+    org.springframework.kafka: WARN
     com.akuev: DEBUG
 
 spring:
