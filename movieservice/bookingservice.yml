@@ -40,4 +40,3 @@ spring:
             spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
             spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
             spring.json.trusted.packages: "*"
-            spring.json.value.default.type: com.akuev.event.model.OrganizationChangeEvent
