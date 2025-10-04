@@ -41,14 +41,14 @@ spring:
             spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
             spring.json.trusted.packages: "*"
             spring.json.value.default.type: com.akuev.event.model.MovieSessionChangeModel
-  # data:
-  #   redis:
-  #     host: ${REDIS_SERVER}
-  #     port: ${REDIS_PORT}
-  #     database: 0
-  #     lettuce:
-  #       pool:
-  #         max-active: 8
-  #         max-idle: 8
-  #         min-idle: 0
-  #       shutdown-timeout: 100ms
+  data:
+    redis:
+      host: ${REDIS_SERVER}
+      port: ${REDIS_PORT}
+      database: 0
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+        shutdown-timeout: 100ms
