@@ -43,8 +43,8 @@ spring:
             spring.json.value.default.type: com.akuev.event.model.MovieSessionChangeModel
   data:
     redis:
-      host: ${REDIS_SERVER}
-      port: ${REDIS_PORT}
+      host: ${REDIS_SERVER:localhost}
+      port: ${REDIS_PORT:6379}
       database: 0
       lettuce:
         pool:
