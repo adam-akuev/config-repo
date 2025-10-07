@@ -1,6 +1,10 @@
 example:
   property: I AM THE DEFAULT
 
+app:
+  internal:
+    api-key: "cinema-internal-secret-key-2024"
+
 server:
   port: 8083
 
@@ -52,3 +56,11 @@ spring:
           max-idle: 8
           min-idle: 0
         shutdown-timeout: 100ms
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans

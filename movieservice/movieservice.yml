@@ -1,6 +1,10 @@
 example:
   property: I AM THE DEFAULT
 
+app:
+  internal:
+    api-key: "cinema-internal-secret-key-2024"
+
 server:
   port: 8081
 
@@ -36,3 +40,11 @@ spring:
           auto-create-topics: true
           auto-add-partitions: true
           
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
+        
