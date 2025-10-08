@@ -26,8 +26,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8080/realms/cinema #For docker localhost=keycloak
-          jwk-set-uri: http://localhost:8080/realms/cinema/protocol/openid-connect/certs #For docker localhost=keycloak
+          issuer-uri: http://keycloak:8080/realms/cinema #For docker localhost=keycloak
+          jwk-set-uri: http://keycloak:8080/realms/cinema/protocol/openid-connect/certs #For docker localhost=keycloak
   cloud:
     stream:
       bindings:
@@ -37,7 +37,7 @@ spring:
           group: bookingGroup
       kafka:
         binder:
-          brokers: localhost:9092
+          brokers: kafka:9092
           consumer-properties:
             key.deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
             value.deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
@@ -47,7 +47,7 @@ spring:
             spring.json.value.default.type: com.akuev.event.model.MovieSessionChangeModel
   data:
     redis:
-      host: localhost
+      host: redis
       port: 6379
       database: 0
       lettuce:
@@ -63,4 +63,4 @@ management:
       probability: 1.0
   zipkin:
     tracing:
-      endpoint: http://localhost:9411/api/v2/spans
+      endpoint: http://zipkin:9411/api/v2/spans
