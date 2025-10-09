@@ -1,0 +1,66 @@
+example:
+  property: I AM THE DEFAULT
+
+app:
+  internal:
+    api-key: "cinema-internal-secret-key-2024"
+
+server:
+  port: 8083
+
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    org.springframework.kafka: WARN
+    com.akuev: DEBUG
+
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://keycloak:8080/realms/cinema #For docker localhost=keycloak
+          jwk-set-uri: http://keycloak:8080/realms/cinema/protocol/openid-connect/certs #For docker localhost=keycloak
+  cloud:
+    stream:
+      bindings:
+        input-in-0:
+          destination: orgChangeTopic
+          content-type: application/json
+          group: bookingGroup
+      kafka:
+        binder:
+          brokers: kafka:9092
+          consumer-properties:
+            key.deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+            value.deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+            spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
+            spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
+            spring.json.trusted.packages: "*"
+            spring.json.value.default.type: com.akuev.event.model.MovieSessionChangeModel
+  data:
+    redis:
+      host: redis
+      port: 6379
+      database: 0
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+        shutdown-timeout: 100ms
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: http://zipkin:9411/api/v2/spans
