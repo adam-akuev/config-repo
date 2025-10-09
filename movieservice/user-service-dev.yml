@@ -15,7 +15,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     username: postgres
     url: jdbc:postgresql://postgres:5432/user_db #For docker localhost = postgres
-    password: '{cipher}a90e0b549e64453957e97c6996d11faba713ce80d5686931f0d986797bab980f'
+    password: password
   jpa:
     hibernate:
       ddl-auto: update
