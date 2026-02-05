@@ -9,6 +9,7 @@ logging:
     com.netflix: WARN
     org.springframework.web: WARN
     com.akuev: DEBUG
+    org.springdoc: DEBUG
 
 spring:
   jpa:
@@ -24,6 +25,24 @@ spring:
           issuer-uri: http://keycloak:8080/realms/cinema #For docker localhost=keycloak
           jwk-set-uri: http://keycloak:8080/realms/cinema/protocol/openid-connect/certs #For docker localhost=keycloak
 
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+    doc-expansion: none
+    display-request-duration: true
+    oauth:
+      client-id: swagger-ui
+      realm: cinema
+      app-name: Cinema API
+      use-pkce-with-authorization-code-grant: true
+  api-docs:
+    path: /v3/api-docs
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+  show-actuator: true
+
 management:
   tracing:
     sampling:
@@ -31,3 +50,7 @@ management:
   zipkin:
     tracing:
       endpoint: http://zipkin:9411/api/v2/spans
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, prometheus
