@@ -10,6 +10,24 @@ eureka:
   instance:
     preferIpAddress: "true"
 
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+    doc-expansion: none
+    display-request-duration: true
+    oauth:
+      client-id: swagger-ui
+      realm: cinema
+      app-name: Cinema API
+      use-pkce-with-authorization-code-grant: true
+  api-docs:
+    path: /v3/api-docs
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+  show-actuator: true
+
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
