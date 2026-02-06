@@ -18,12 +18,12 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
-  # security:
-  #   oauth2:
-  #     resourceserver:
-  #       jwt:
-  #         issuer-uri: http://keycloak:8080/realms/cinema #For docker localhost=keycloak
-  #         jwk-set-uri: http://keycloak:8080/realms/cinema/protocol/openid-connect/certs #For docker localhost=keycloak
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://keycloak:8080/realms/cinema #For docker localhost=keycloak
+          jwk-set-uri: http://keycloak:8080/realms/cinema/protocol/openid-connect/certs #For docker localhost=keycloak
 
 springdoc:
   swagger-ui:
